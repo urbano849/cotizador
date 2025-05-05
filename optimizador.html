@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimizador de Melamina - Estilo Unificado</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="optimizador.css">
+</head>
+<body class="bg-gray-100 p-5">
+    <div id="messageBox" class="message-box"></div>
+
+    <div class="container mx-auto bg-white p-8 rounded-xl shadow-lg">
+
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Optimizador de Melamina</h1>
+
+        <div class="flex flex-wrap gap-6 mb-8">
+
+            <div class="form-section border border-gray-200 p-6 rounded-lg bg-gray-50">
+                 <h2 class="text-2xl font-bold text-gray-800 mb-4">Configuración de Plancha</h2>
+                 <div class="form-group mb-4">
+                    <label for="sheetWidth" class="block text-gray-700 font-bold mb-1">Ancho (mm):</label>
+                    <input type="number" id="sheetWidth" value="2800" min="1" class="w-full md:w-auto p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                 <div class="form-group mb-4">
+                    <label for="sheetHeight" class="block text-gray-700 font-bold mb-1">Alto (mm):</label>
+                    <input type="number" id="sheetHeight" value="2070" min="1" class="w-full md:w-auto p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                 <div class="form-group mb-4">
+                    <label for="kerf" class="block text-gray-700 font-bold mb-1">Sierra (mm):</label>
+                    <input type="number" id="kerf" value="4.3" min="0" step="0.1" class="w-full md:w-auto p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                 <div class="form-group mb-4">
+                     <label for="margin" class="block text-gray-700 font-bold mb-1">Margen (mm):</label>
+                     <input type="number" id="margin" value="10" min="0" step="0.1" class="w-full md:w-auto p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                 <div class="form-group flex items-center mb-4">
+                     <input type="checkbox" id="sheetGrain" class="mr-2 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                     <label for="sheetGrain" class="text-gray-700">Con Veta</label>
+                 </div>
+                 <div class="form-group mb-4">
+                     <label for="sortPriority" class="block text-gray-700 font-bold mb-1">Prioridad de Ordenación:</label>
+                     <select id="sortPriority" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                         <option value="height_desc">Alto Descendente, Ancho Descendente</option>
+                         <option value="area_desc">Área Descendente</option>
+                         <option value="width_desc">Ancho Descendente, Alto Descendente</option>
+                         <option value="height_asc">Alto Ascendente, Ancho Ascendente</option>
+                     </select>
+                 </div>
+            </div>
+
+            <div class="form-section border border-gray-200 p-6 rounded-lg bg-gray-50">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Piezas a Cortar</h2>
+                <table id="pieceTable">
+                    <thead>
+                        <tr>
+                            <th>Ancho (mm)</th>
+                            <th>Alto (mm)</th>
+                            <th>Cantidad</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="number" class="pieceWidth p-1 border border-gray-300 rounded-md" value="600" min="1"></td>
+                            <td><input type="number" class="pieceHeight p-1 border border-gray-300 rounded-md" value="400" min="1"></td>
+                            <td><input type="number" class="pieceQty p-1 border border-gray-300 rounded-md" value="1" min="1"></td>
+                            <td>
+                                <button class="btn-delete bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded text-xs" onclick="removePiece(this)">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button onclick="addPiece()" class="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4">Añadir Pieza</button>
+            </div>
+        </div>
+
+        <button onclick="optimizeCuts()" class="w-full bg-blue-600 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-lg mb-8 text-lg">Optimizar Cortes</button>
+
+        <div class="results-container form-section border border-gray-200 p-6 rounded-lg bg-gray-50 mb-8">
+             <h2 class="text-2xl font-bold text-gray-800 mb-4">Resultado</h2>
+             <p id="summary" class="bg-blue-100 border border-blue-300 text-blue-800 px-4 py-3 rounded relative mb-6">Introduce las dimensiones y piezas, luego haz clic en "Optimizar Cortes".</p>
+             <div id="sheetVisuals" class="pt-4">
+             </div>
+        </div>
+
+    </div>
+
+    <script src="optimizador.js"></script>
+</body>
+</html>
