@@ -1,0 +1,359 @@
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+.container.mx-auto {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 1000px; /* Ajuste para limitar el ancho máximo */
+}
+h1, h2, h3 {
+    color: #333;
+}
+.form-section, .mueble-item, .materials-list-section .mueble-materials, .saved-quotes-list-section li {
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+ /* Específico para form-section en el optimizador */
+ .optimizador .form-section {
+    flex: 1;
+    min-width: 300px;
+ }
+
+.form-group label {
+    font-weight: bold;
+}
+input[type="text"], input[type="number"], select {
+    border: 1px solid #ccc;
+}
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    /* Ajuste para asegurar alineación vertical */
+    align-self: center; /* Align button vertically in flex container */
+    display: inline-flex; /* Use flex to center content if needed, though 'x' is simple text */
+    justify-content: center; /* Center 'x' horizontally */
+    align-items: center; /* Center 'x' vertically */
+    height: calc(100% - 2px); /* Match height of adjacent inputs, minus border */
+    line-height: 1; /* Reset line height */
+}
+.btn-delete:hover {
+    background-color: #c82333;
+}
+ /* Hide custom material inputs by default (Cotizador) */
+ .cotizador .custom-material-inputs {
+     display: none; /* Hidden by default */
+     gap: 10px;
+     margin-top: 10px;
+     padding: 10px;
+     border: 1px dashed #ccc;
+     width: 100%;
+     box-sizing: border-box;
+     align-items: center; /* Vertically align items */
+ }
+ .cotizador .custom-material-inputs input {
+     padding: 5px;
+     font-size: 0.9rem;
+     text-align: center;
+     /* width: 100%; Removed this to allow flex to control width */
+     box-sizing: border-box;
+ }
+
+ /* Prioritize the 'Nombre' input within the custom inputs flex container */
+ .cotizador .custom-material-inputs .custom-nombre {
+     flex-grow: 1; /* Allow this input to take up available space */
+ }
+
+ /* Give fixed or smaller width to Price and Quantity inputs */
+ .cotizador .custom-material-inputs .custom-precio,
+ .cotizador .custom-material-inputs .custom-cantidad {
+     width: 80px; /* Fixed width */
+     flex-shrink: 0; /* Prevent shrinking */
+ }
+
+
+ /* Adjust parent flex item to wrap if necessary (Cotizador) */
+ .cotizador .herraje-item {
+     display: flex;
+     flex-wrap: wrap; /* Changed from nowrap to wrap */
+     align-items: center; /* Ensure vertical alignment */
+     gap: 10px;
+     margin-bottom: 15px;
+ }
+
+ .cotizador .herraje-item select,
+ .cotizador .herraje-item input[type="number"] {
+     flex-shrink: 1;
+     /* Ensure inputs have a defined height or allow flex items to stretch */
+     height: auto; /* Allow height to be determined by content/padding */
+     min-height: 38px; /* Ensure a minimum height similar to button */
+ }
+
+ .cotizador .herraje-item .btn-delete {
+     flex-shrink: 0;
+     /* Ensure button doesn't shrink and maintains its calculated height */
+ }
+
+ /* Specific style for the quantity input next to select */
+ .cotizador .herraje-item input[type="number"] {
+     width: 80px; /* Fixed width for quantity input */
+     flex-shrink: 0; /* Prevent shrinking */
+ }
+
+
+  /* Custom styles for the price update modal (Cotizador) */
+ .cotizador .dialogo-precios {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0,0,0,0.5);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     z-index: 1000;
+ }
+ .cotizador .dialogo-contenido {
+     background-color: #fff;
+     padding: 20px;
+     border-radius: 8px;
+     max-width: 600px;
+     max-height: 80vh;
+     overflow-y: auto;
+     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+ }
+  .cotizador .dialogo-contenido h2 {
+      margin-top: 0;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+  }
+  .cotizador .dialogo-contenido h3 {
+      margin-top: 15px;
+      margin-bottom: 10px;
+  }
+ .cotizador .precio-item {
+     display: grid;
+     grid-template-columns: 2fr 1fr;
+     gap: 10px;
+     margin-bottom: 8px;
+     align-items: center;
+ }
+  .cotizador .precio-item label {
+      margin-bottom: 0;
+  }
+  .cotizador .dialogo-contenido button {
+      margin-top: 15px;
+  }
+
+  /* Styles for the production materials list section (Cotizador) */
+  .cotizador .materials-list-section {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+  }
+  .cotizador .materials-list-section h2 {
+      margin-bottom: 15px;
+  }
+  .cotizador .materials-list-section ul {
+      list-style: none;
+      padding: 0;
+  }
+  .cotizador .materials-list-section li {
+      background-color: #eee;
+      border: 1px solid #ccc;
+      padding: 8px;
+      margin-bottom: 5px;
+      border-radius: 4px;
+  }
+  .cotizador .materials-list-section li strong {
+      color: #555;
+  }
+  .cotizador .materials-list-section .mueble-materials {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      background-color: #fff;
+  }
+  .cotizador .materials-list-section .mueble-materials h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      border-bottom: 1px dashed #ccc;
+      padding-bottom: 5px;
+  }
+  .cotizador .materials-list-section .mueble-materials ul {
+      padding-left: 20px;
+  }
+  .cotizador .materials-list-section .mueble-materials li {
+      background-color: transparent;
+      border: none;
+      padding: 2px 0;
+      margin-bottom: 2px;
+  }
+
+ /* Styles for saved quotes list (Cotizador) */
+ .cotizador .saved-quotes-list-section {
+     margin-top: 20px;
+     padding-top: 20px;
+     border-top: 1px solid #ddd;
+ }
+ .cotizador .saved-quotes-list-section h2 {
+     margin-bottom: 15px;
+ }
+ .cotizador .saved-quotes-list-section ul {
+     list-style: none;
+     padding: 0;
+ }
+ .cotizador .saved-quotes-list-section li {
+     background-color: #e9ecef;
+     border: 1px solid #ced4da;
+     padding: 10px;
+     margin-bottom: 8px;
+     border-radius: 5px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-wrap: wrap;
+     gap: 10px;
+ }
+ .cotizador .saved-quotes-list-section li .quote-info {
+     flex-grow: 1;
+ }
+ .cotizador .saved-quotes-list-section li .quote-actions button {
+     padding: 5px 10px;
+     font-size: 0.9rem;
+     margin-left: 5px;
+     border-radius: 5px;
+ }
+
+/* Optimizador specific styles */
+.optimizador .results-container {
+     flex-basis: 100%;
+}
+
+.optimizador #pieceTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+.optimizador #pieceTable th, .optimizador #pieceTable td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+.optimizador #pieceTable th {
+    background-color: #e9ecef;
+    font-weight: bold;
+    color: #555;
+}
+.optimizador #pieceTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.optimizador #pieceTable input[type="number"] {
+    width: 80px;
+    box-sizing: border-box;
+}
+.optimizador #pieceTable td:last-child {
+    text-align: center;
+}
+.optimizador #pieceTable .btn-delete {
+    margin-left: auto;
+}
+
+.optimizador #summary {
+}
+
+.optimizador .sheet-result {
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+.optimizador .sheet-result h3 {
+}
+.optimizador .sheet-summary {
+}
+
+.optimizador #sheetVisuals {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 15px;
+     justify-content: center;
+}
+.optimizador #sheetVisuals .sheet-result {
+     flex-basis: 100%;
+     max-width: 100%;
+     box-sizing: border-box;
+}
+
+.optimizador #sheetVisuals canvas {
+    border: 1px solid black;
+    background-color: #f0f0f0;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* General Message Box */
+.message-box {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(220, 53, 69, 0.9);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: none;
+    font-size: 1.1em;
+    text-align: center;
+}
+.message-box.success {
+     background-color: rgba(40, 167, 69, 0.9);
+}
+
+
+/* Tab Styles */
+.tab-container {
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+}
+.tab-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background-color: #f4f4f4;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+.tab-button.active {
+    border-color: #007bff;
+    background-color: #e9ecef;
+    font-weight: bold;
+}
+.tab-content {
+    display: none; /* Hide all tab content by default */
+    padding-top: 20px;
+}
+.tab-content.active {
+    display: block; /* Show only the active tab content */
+}
+
+ /* Ensure Tableros and Cantos sections have equal width within their grid container */
+ /* They are already in a grid with md:grid-cols-2, which should make them equal. */
+ /* Adding a class to their parent div for clarity and potential future specific styling if needed. */
+ .cotizador .mueble-materials-grid > .form-group {
+     /* No specific styles needed here as grid handles equal width, but this targets them */
+ }
