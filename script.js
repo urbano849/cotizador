@@ -104,9 +104,10 @@
         // Base de datos de materiales con sus precios (se inicializará con IndexedDB si hay datos guardados)
         let materiales = {
             tableros: {
-                "melamina_blanca_18mm": { nombre: "Melamina Blanca 18mm", precio: 60.00 },
-                "melamina_blanca_15mm": { nombre: "Melamina Blanca 15mm", precio: 55.00 },
-                "melamina_blanca_6mm": { nombre: "Melamina Blanca 6mm", precio: 40.00 }
+                "melamina_blanca_18mm": { nombre: "Melamina Blanca 18mm (7x8)", precio: 5192.00 },
+                "melamina_blanca_15mm": { nombre: "Melamina Blanca 15mm (7x8)", precio: 4531.20 },
+                "melamina_blanca_6mm": { nombre: "Melamina Blanca 6mm (7x8)", precio: 3065.64 },
+                "melamina_ceniza_18mm": { nombre: "Melamina ceniza 18mm (7x8)", precio: 6230.40 }
             },
              // Sección para cantos
             cantos: {
