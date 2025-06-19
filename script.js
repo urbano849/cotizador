@@ -85,7 +85,7 @@
         }
 
          /**
-          * Formats a date object as YYYY-MM-DD.
+          * Formats a date object as DD-MM-YYYY.
           * @param {Date} date The date object to format.
           * @returns {string} The formatted date string.
           */
@@ -93,7 +93,7 @@
              const day = date.getDate().toString().padStart(2, '0');
              const month = (date.getMonth() + 1).toString().padStart(2, '0'); // getMonth() es base 0
              const year = date.getFullYear();
-             return `${year}-${month}-${day}`;
+             return `${day}-${month}-${year}`;
          }
 
 
@@ -153,7 +153,7 @@
             direccion: "Calle 9, no.22 Villa Carmen, Santo Domingo Este.",
             telefono: "(829) 613-8006",
             email: "arq.jesusvargas01@gmail.com",
-            logoUrl: "[https://i.postimg.cc/y6wLjccb/Captura-de-pantalla-2025-04-24-133337.png](https://i.postimg.cc/y6wLjccb/Captura-de-pantalla-2025-04-24-133337.png)" // URL del logo proporcionada
+            logoUrl: "[https://i.postimg.cc/y6wLjccb/Captura-de-pantalla-2025-04-24-133337.png)" // URL del logo proporcionada
         };
 
         // Array para almacenar los muebles agregados (cotización actual)
