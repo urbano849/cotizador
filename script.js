@@ -153,7 +153,7 @@
             direccion: "Calle 9, no.22 Villa Carmen, Santo Domingo Este.",
             telefono: "(829) 613-8006",
             email: "arq.jesusvargas01@gmail.com",
-            logoUrl: "[https://i.postimg.cc/y6wLjccb/Captura-de-pantalla-2025-04-24-133337.png)" // URL del logo proporcionada
+            logoUrl: "(https://i.postimg.cc/y6wLjccb/Captura-de-pantalla-2025-04-24-133337.png)" // URL del logo proporcionada
         };
 
         // Array para almacenar los muebles agregados (cotización actual)
